@@ -1,0 +1,44 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuickLink URL Shortener</title>
+    <style>
+        body { font-family: sans-serif; display: grid; place-content: center; height: 100vh; text-align: center; }
+        input { padding: 8px; margin-right: 8px; }
+    </style>
+</head>
+<body>
+    <h1>QuickLink URL Shortener</h1>
+    <form id="shorten-form">
+        <input type="url" id="long-url" placeholder="Enter a long URL" required>
+        <button type="submit">Shorten</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById('shorten-form');
+        const longUrlInput = document.getElementById('long-url');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const longUrl = longUrlInput.value;
+
+            const response = await fetch('/api/shorten', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ longUrl })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                resultDiv.innerHTML = `Short URL: <a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
+            } else {
+                resultDiv.innerHTML = 'Error: Could not shorten URL.';
+            }
+        });
+    </script>
+</body>
+</html>

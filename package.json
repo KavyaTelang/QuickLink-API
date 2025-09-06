@@ -1,0 +1,16 @@
+{
+  "name": "quicklink-api",
+  "version": "1.0.0",
+  "description": "\"A simple, fast, and efficient URL shortener API built with Node.js, Express, and PostgreSQL.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests to run\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nanoid": "^5.1.5",
+    "pg": "^8.16.3"
+  }
+}
