@@ -1,9 +1,8 @@
-# QuickLink URL Shortener
+# BOLT.URL
 
 A simple, fast, and efficient URL shortener API built with Node.js, Express, and PostgreSQL.
 
-**Live Link:** [Will be added after deployment!]
-
+**Live Link:** (https://quick-link-api.vercel.app/)
 ## Overview
 
 This project is a backend-focused REST API that provides URL shortening services. It exposes two main endpoints:
