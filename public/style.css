@@ -63,6 +63,18 @@ body {
     margin-bottom: 30px;
 }
 
+/* Add this to style.css */
+.card-header .dot {
+    /* Apply the same beautiful gradient as our button */
+    background-image: linear-gradient(to right, #4a00e0, #8e2de2);
+    
+    /* CSS trick to make the text color a gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
 /* The Form */
 #shorten-form {
     display: flex;
