@@ -7,15 +7,34 @@
     box-sizing: border-box;
 }
 
+/* public/style.css - NEW BODY SELECTOR */
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1a1b26;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+
+    /* --- BACKGROUND IMAGE LOGIC --- */
+    /* 1. We apply a semi-transparent dark gradient ON TOP of the image */
+    background-image: 
+        linear-gradient(rgba(26, 27, 38, 0.95), rgba(26, 27, 38, 0.95)),
+        url('images/background.jpg');
+
+    /* 2. Ensure the image covers the entire screen without distortion */
+    background-size: cover;
+
+    /* 3. Center the image */
+    background-position: center center;
+
+    /* 4. Prevent the image from tiling/repeating */
+    background-repeat: no-repeat;
+
+    /* 5. (Optional but cool) The background stays fixed when you scroll */
+    background-attachment: fixed;
 }
 
 /* The main container card */
