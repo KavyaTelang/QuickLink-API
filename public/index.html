@@ -3,42 +3,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QuickLink URL Shortener</title>
-    <style>
-        body { font-family: sans-serif; display: grid; place-content: center; height: 100vh; text-align: center; }
-        input { padding: 8px; margin-right: 8px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolt.URL - Blazingly Fast URL Shortener</title>
+    
+    <!-- Link to our new stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <h1>QuickLink URL Shortener</h1>
-    <form id="shorten-form">
-        <input type="url" id="long-url" placeholder="Enter a long URL" required>
-        <button type="submit">Shorten</button>
-    </form>
-    <div id="result"></div>
+    <main class="card">
+        <header class="card-header">
+            <h1><i class="fa-solid fa-bolt"></i> Bolt.URL</h1>
+            <p>Your long URLs, simplified in a flash.</p>
+        </header>
 
-    <script>
-        const form = document.getElementById('shorten-form');
-        const longUrlInput = document.getElementById('long-url');
-        const resultDiv = document.getElementById('result');
+        <form id="shorten-form">
+            <input type="url" id="long-url" placeholder="Paste your long URL here..." required>
+            <button type="submit">Shorten</button>
+        </form>
 
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const longUrl = longUrlInput.value;
-
-            const response = await fetch('/api/shorten', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ longUrl })
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                resultDiv.innerHTML = `Short URL: <a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
-            } else {
-                resultDiv.innerHTML = 'Error: Could not shorten URL.';
-            }
-        });
-    </script>
+        <section id="result-section" class="hidden">
+            <p>Here's your link:</p>
+            <div class="result-box">
+                <a href="" id="short-url" target="_blank"></a>
+                <button id="copy-btn" title="Copy to clipboard">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- We will link to a new script file for better organization -->
+    <script src="script.js"></script>
 </body>
 </html>
