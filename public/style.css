@@ -22,7 +22,7 @@ body {
     /* 1. We apply a semi-transparent dark gradient ON TOP of the image */
     background-image: 
         linear-gradient(rgba(26, 27, 38, 0.95), rgba(26, 27, 38, 0.95)),
-        url('images/background.jpg');
+        url('images/bolt.jpg');
 
     /* 2. Ensure the image covers the entire screen without distortion */
     background-size: cover;
